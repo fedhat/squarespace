@@ -1,64 +1,114 @@
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script type="text/javascript">
+    // Adapted from:
+    // http://www.studiobosco.de/blog/2015/9/7/basic-translation-for-squarespace
+    // https://github.com/bits-of-static/squarespace/blob/master/codeInjection_basicTranslation.html
 	basicTranslation_dictionary = {
 		"mobileBar": {
 				"Email": 		"Email", 
-				"Call": 		"Anruf", 
-				"Map": 			"Karte", 
-				"Hours": 		"Zeiten"
+				"Call": 		"Llamar", 
+				"Map": 			"Mapa", 
+				"Hours": 		"Horarios"
 			}, 
+		"blogSummaryLabels": {
+				"Comments": 	"Comentarios",
+				"Comment": 		"Comentar"
+		},
+		"blogAttributes": {
+			"Read More": "Leer más",
+		},
 		"contactFormLabel": {
-				"First Name": 	"Vorname", 
-				"Last Name": 	"Nachname"
+				"First Name": 	"Nombre", 
+				"Last Name": 	"Apellido"
 			}, 
 		"contactFormError": {
-				"is required.": 																"ist erforderlich.", 
-				"is not valid. Email addresses should follow the format user@domain.com.": 		"folgt die Konvention benutzer@domain.com.", 
-				"Your form has encountered a problem.": 										"Oops, da ging etwas schief.",
+				"is required.": 																"es obligatorio.", 
+				"is not valid. Email addresses should follow the format user@domain.com.": 		"no es válido. Direcciones de email deben ser del formata usuario@dominio.com.", 
+				"Your form has encountered a problem.": 										"Hubo un error al enviar tu formulario",
 				"Please scroll down to review.": 												"", 
 				"Please scroll up to review.": 													""
 			}, 
 		"commentingSectionHeader": {
-				"Comments": 					"Kommentare", 
-				"Newest First": 				"Neuste zuerst", 
-				"Oldest First": 				"Älteste zuerst", 
-				"Most Liked": 					"Beliebteste zuerst", 
-				"Least Liked": 					"Unbeliebteste zuerst", 
-				"Subscribe via e-mail": 		"Per E-Mail Abonieren"
+				"Comments": 					"Comentarios", 
+				"Newest First": 				"Más reciente primero", 
+				"Oldest First": 				"Más viejo primero", 
+				"Most Liked": 					"Más gustado", 
+				"Least Liked": 					"Menos gustado", 
+				"Subscribe via e-mail": 		"Suscríbete por email"
 			}, 
 		"commentingEntryHeader": {
-				"Pending": 					"In Prozess", 
-				"Awaiting Moderation": 		"Wartet auf Moderator", 
-				"Not Logged In": 			"Nicht eingelogged"
+				"Pending": 					"Procesando", 
+				"Awaiting Moderation": 		"Esperando moderación", 
+				"Not Logged In": 			"Sin sesión"
 			}, 
-		"commentingEntryButtons": {
-				"Preview": 					"Vorschau", 
-				"Edit": 					"Editieren", 
-				"Post Comment": 			"Veröffentlichen", 
-				"Post Reply": 				"Antworten"
+		"commentEntryButtons": {
+				"Preview": 					"Previsualizar", 
+				"Edit": 					"Editar", 
+				"Post Comment": 			"Comentar", 
+				"Post Reply": 				"Responder"
 			}, 
-		"commentingTime": {
-				"Just now": 				"Jetzt", 
-				"An": 						"", 
-				"A": 						"", 
-				"minute ago": 				"Minute alt", 
-				"minutes ago": 				"Minuten alt", 
-				"hour ago": 				"Stunde alt", 
-				"hours ago": 				"Stunden alt", 
-				"day ago": 					"Tag alt", 
-				"days ago": 				"Tage alt"
+		"commentCountLabels": {
+				"Comments":					"Comentarios",
+				"Likes":					"Me gusta"
+		},
+		"timeLabels": {
+				"Just now": 				"Justo ahora", 
+				"An": 						"Hace", 
+				"A": 						"Hace", 
+				"month ago":				"un mes",
+				"months ago":				"meses",
+				"minute ago": 				"un minuto", 
+				"minutes ago": 				"minutos", 
+				"hour ago": 				"una hora", 
+				"hours ago": 				"horas", 
+				"day ago": 					"un dia", 
+				"days ago": 				"dias"
+		},
+		"commentShareLike": {
+				"Comments":					"Comentarios",
+				"Like this":				"Gustar esto",
+				"Share":					"Compartir"
+		},
+		"navigationPagination": {
+				"Newer":					"Más reciente",
+				"Older":					"Menos reciente"
+		},
+		"dateStrings": {
+				"January":					"enero",
+				"February":					"febrero",
+				"March":					"marzo",
+				"April":					"abril",
+				"May":						"mayo",
+				"June":						"junio",
+				"July":						"julio",
+				"August":					"agosto",
+				"September":				"septiembre",
+				"October":					"octubre",
+				"November":					"noviembre",
+				"December":					"diciembre"
+		}
+		,
+		"searchFields": {
+				"Search":					"Buscar"
 		}
 	};
 
 	/************************************************************************************/
 	basicTranslation_selectors = {
-		"mobileBar": 					".sqs-mobile-info-bar-trigger-label", //direct, assign
-		"contactFormLabel": 			"form label.caption", //filter, assign
-		"contactFormError": 			"form div.field-error", //direct, replace
-		"commentingSectionHeader": 		"h3.comment-count span, div.comment-controls span, div.comment-controls option", //direct, assign
-		"commentingEntryHeader": 		"div.comment-header span", //direct, replace
-		"commentingEntryButtons": 		"div.comment-btn-wrapper>span", //direct, assign
-		"commentingTime": 				"div.comment-header span.timesince" //direct, replace
+		"mobileBar": 					".sqs-mobile-info-bar-trigger-label",
+		"blogSummaryLabels":			"div.summary-metadata span.summary-metadata-item a",
+		"blogAttributes":				"a.summary-read-more-link",
+		"contactFormLabel": 			"form label.caption",
+		"contactFormError": 			"form div.field-error",
+		"commentingSectionHeader": 		"h3.comment-count span, div.comment-controls span, div.comment-controls option",
+		"commentingEntryHeader": 		"div.comment-header span",
+		"commentEntryButtons": 			"div.comment-btn-wrapper>span",
+		"commentCountLabels":			"div.counts span.comment-count a, div.counts span.like-counter",
+		"timeLabels": 					"div.comment-header span.timesince, div.tweet-text-wrapper span.timesince",
+		"commentShareLike":				"div.comment-share-like a[title]",
+		"navigationPagination":			"nav.pagination a, nav.pagination span",
+		"dateStrings":					"div.post-meta.author-date a, nav.pagination span.next-title a strong, a.archive-group-name-link",
+		"searchFields":					"input.search-input[placeholder]"
 	};
 
 	/************************************************************************************/
@@ -69,17 +119,30 @@
 		var mutationObserver = new MutationObserver(basicTranslation_mutationObserver);
 		mutationObserver.observe(document, { subtree: true, childList: true, characterData: true });
 		
-		basicTranslation_naiveReplace(jQuery(basicTranslation_selectors["mobileBar"]), "mobileBar", basicTranslation_isTextNode);
-		basicTranslation_naiveReplace(jQuery(basicTranslation_selectors["contactFormLabel"]), "contactFormLabel", basicTranslation_isTextNode);
+		basicTranslation_replace(jQuery(basicTranslation_selectors["mobileBar"]), "mobileBar", basicTranslation_isTextNode);
+ 		basicTranslation_replace(jQuery(basicTranslation_selectors["contactFormLabel"]), "contactFormLabel", basicTranslation_isTextNode);
+ 		basicTranslation_replace(jQuery(basicTranslation_selectors["commentCountLabels"]), "commentCountLabels", basicTranslation_isTextNode);
+ 		basicTranslation_replace(jQuery(basicTranslation_selectors["navigationPagination"]), "navigationPagination", basicTranslation_isTextNode);
+ 		basicTranslation_replace(jQuery(basicTranslation_selectors["dateStrings"]), "dateStrings", basicTranslation_isTextNode);
+		basicTranslation_attributeReplace(jQuery(basicTranslation_selectors["commentShareLike"]), "commentShareLike", "title");
+		basicTranslation_attributeReplace(jQuery(basicTranslation_selectors["searchFields"]), "searchFields", "placeholder");
+		basicTranslation_replace(jQuery(basicTranslation_selectors["blogSummaryLabels"]), "blogSummaryLabels", basicTranslation_isTextNode);
+		
+		// This doesn't work, since 'Read More' is a pseudo element. Commented out for now
+		//basicTranslation_attributeReplace(jQuery(basicTranslation_selectors["blogAttributes"]), "blogAttributes", "data-content");
 	}); //onStartup
 
 	/************************************************************************************/
+	/* jQuery filter functions  */
+	basicTranslation_isAttributeNode = function() {
+		return this.nodeType === 2;
+	};
 	basicTranslation_isTextNode = function() {
 		return this.nodeType === 3;
-	}; //routine
+	};
 	basicTranslation_isAnyNode = function() {
 		return true;
-	}; //routine
+	};
 
 	/************************************************************************************/
 	basicTranslation_mutationObserver = function(mutations, observer) {
@@ -94,37 +157,36 @@
 					
 					var addedNodes = jQuery(mutationRecord.addedNodes);
 					
-					basicTranslation_naiveReplace(addedNodes, "contactFormLabel", basicTranslation_isTextNode);
-					basicTranslation_naiveReplace(addedNodes, "contactFormError", basicTranslation_isTextNode);
-					basicTranslation_naiveReplace(addedNodes, "commentingSectionHeader", basicTranslation_isTextNode);
-					basicTranslation_naiveReplace(addedNodes, "commentingEntryHeader", basicTranslation_isTextNode);
-					basicTranslation_naiveReplace(addedNodes, "commentingEntryButtons", basicTranslation_isTextNode);
-					basicTranslation_naiveReplace(addedNodes, "commentingTime", basicTranslation_isTextNode);
+					basicTranslation_replace(addedNodes, "contactFormLabel", basicTranslation_isTextNode);
+					basicTranslation_replace(addedNodes, "contactFormError", basicTranslation_isTextNode);
+					basicTranslation_replace(addedNodes, "commentingSectionHeader", basicTranslation_isTextNode);
+					basicTranslation_replace(addedNodes, "commentingEntryHeader", basicTranslation_isTextNode);
+					basicTranslation_replace(addedNodes, "commentEntryButtons", basicTranslation_isTextNode);
+					basicTranslation_replace(addedNodes, "timeLabels", basicTranslation_isTextNode);
 					break;
 					
 				case "characterData": 
-					
 					switch (mutationRecord.target.parentNode.className) {
 						case "timesince":
-							basicTranslation_naiveReplace(jQuery(mutationRecord.target.parentNode), "commentingTime", basicTranslation_isTextNode);
+							basicTranslation_replace(jQuery(mutationRecord.target.parentNode), "timeLabels", basicTranslation_isTextNode);
 							break;
 							
 						case "btn-text preview-comment top-level-preview-btn":
 							console.log(mutationRecord.target.parentNode.className, mutationRecord.target.data);
-							basicTranslation_naiveReplace(jQuery(mutationRecord.target.parentNode), "commentingEntryButtons", basicTranslation_isTextNode);
+							basicTranslation_replace(jQuery(mutationRecord.target.parentNode), "commentEntryButtons", basicTranslation_isTextNode);
 							break;
-					} //switch
+					} 
 					
 					break;
-			} //switch
-		} //for
+			} 
+		} 
 		
 		observer.takeRecords();
-	}; //onDemand
+	}; 
 
 	/************************************************************************************/
-	basicTranslation_naiveReplace = function(nodes, section, filter) {
-		
+	basicTranslation_replace = function(nodes, section, filter) {
+	
 		nodes
 			.find(basicTranslation_selectors[section])
 			.addBack(basicTranslation_selectors[section])
@@ -136,5 +198,18 @@
 					this.data = this.data.replace(originPhrase, destinationPhrase);
 				}
 			});
-	}; //routine
+	};
+	
+	basicTranslation_attributeReplace = function(nodes, section, attributeName) {
+		//console.log("LOOKING FOR ATTRIBUTE: " + attributeName);
+		nodes
+			.each(function() {
+				//console.log("THIS ATTR: " + $(this).attr(attributeName));			
+				for (var originPhrase in basicTranslation_dictionary[section]) {
+					var destinationPhrase = basicTranslation_dictionary[section][originPhrase];
+					var currentAttrValue = $(this).attr(attributeName);
+					jQuery(this).attr(attributeName, currentAttrValue.replace(originPhrase, destinationPhrase));
+				}
+			});
+	};
 </script>

@@ -1,9 +1,19 @@
-# squarespace
+# Squarespace
 
+### Simple Squarespace translation (_Traducción simple para Squarespace_)
 
-Squarespace related tools and code
+**codeInjection_basicTranslation.html** : translate common gui elements, English->Spanish
 
-- **codeInjection_basicTranslation.html** : translate common gui elements, en->de preset for *mobile bar*, *contact formular* and *commenting*
-- **npp_lang_jsont.xml** : notepad++ syntax highlighter for jsonT
+### How To Install (_Como instalar_)
 
-developed for [Studio Bosco](studiobosco.de)
+#### English
+* Copy contents of codeInjection\_basicTranslation.html
+* Within Squarespace's admin interface, go to: Settings > Website:Advanced > Code Injection
+* Paste contents of codeInjection\_basicTranslation.html within **HEADER** section
+* Click **Save**
+
+#### Spanish
+* Copia el contenido de codeInjection\_basicTranslation.html
+* Dentro de la interfaz de administración de Squarespace, navega a: Settings > Website:Advanced > Code Injection
+* Pega el contenido de codeInjection\_basicTranslation.html dentro de la sección **HEADER**
+* Haz clic en **Save**
